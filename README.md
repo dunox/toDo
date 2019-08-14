@@ -1,2 +1,2 @@
 # toDo
-tod list with js
+to do list with js
