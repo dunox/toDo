@@ -5,15 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Список задач</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="font-awesome.css">
+    <script src="main.js"></script>
+
 </head>
 <body>
     <div class="wrapper">
         <div class="toDo">
             <div class="toDo_header">
                 <div class="toDo_title"><span>Список задач</span></div>
+                <div class="clear">
+                    <i class="fa fa-refresh"></i>
+                </div>
+                <div id="date"></div>
             </div>
             <div class="toDo_body">
-
+                <ul id="list">
+                    <li id="myTask"><span>Задача 1</span> 
+                        <div class="icons">
+                            <!-- <div class="edit"></div> -->
+                            <div  id="event" class="event"></div>
+                            <div class="delete"></div>
+                            <!-- <img src="img/edit.png" alt="Редактировать" onclick="toDoEdit()">
+                            <img id="event" class="event" src="img/like.png" alt="Выполнено" onclick="toDoDone()">
+                            <img src="img/garbage.png" alt="Удалить" onclick="toDoDelete()"> -->
+                        </div>
+                    </li>
+                    <li><span>Задача 2</span> 
+                        <div class="icons">
+                            <img src="img/edit.png" alt="Редактировать" onclick="toDoEdit()">
+                            <img class="event" src="img/like.png" alt="Выполнено" onclick="toDoDone()">
+                            <img src="img/garbage.png" alt="Удалить" onclick="toDoDelete()">
+                        </div>
+                    </li>
+                    <li><span>Задача 3</span> 
+                        <div class="icons">
+                            <img src="img/edit.png" alt="Редактировать" onclick="toDoEdit()">
+                            <img src="img/like.png" alt="Выполнено" onclick="toDoDone()">
+                            <img src="img/garbage.png" alt="Удалить" onclick="toDoDelete()">
+                        </div>
+                    </li>
+                    <li><span>Задача 4</span> 
+                        <div class="icons">
+                            <img src="img/edit.png" alt="Редактировать" onclick="toDoEdit()">
+                            <img src="img/like.png" alt="Выполнено" onclick="toDoDone()">
+                            <img src="img/garbage.png" alt="Удалить" onclick="toDoDelete()">
+                        </div>
+                    </li>
+                    <li><span>Задача 5</span> 
+                        <div class="icons">
+                            <img src="img/edit.png" alt="Редактировать" onclick="toDoEdit()">
+                            <img src="img/like.png" alt="Выполнено" onclick="toDoDone()">
+                            <img src="img/garbage.png" alt="Удалить" onclick="toDoDelete()">
+                        </div>
+                    </li>
+                </ul>
             </div>
             <div class="toDo_stats">
                 <div class="toDo_stats__item">
@@ -30,9 +77,13 @@
                 </div>
             </div>
             <div class="toDo_footer">
-                <input class="toDo_footer__newTask" type="text" placeholder="Добавить новую задачу">
+                <input id="input" class="toDo_footer__newTask" type="text" placeholder="Добавить новую задачу">
+                <button>Добавить задачу</button>
             </div>
         </div>
     </div>
+            
+    <!-- <script src="app.js"></script> -->
+    <script src="main.js"></script>
 </body>
 </html>
