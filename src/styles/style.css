@@ -1,0 +1,130 @@
+body{
+    background-color: aliceblue;
+}
+.wrapper{
+    width: 350px;
+    border-radius: 20px;
+    height: auto;
+    /* background-color: yellow; */
+    background-color: #f4f6f8;
+    margin: 200px auto;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+}
+.toDo_header{
+    text-align: center;
+    color: white;
+    padding: 10px;
+    background-color: #9555AF;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.toDo_body ul{
+    padding-inline-start: 0px;
+}
+.toDo_body li{
+    position: relative;
+    align-content: center;
+    list-style: none;
+    padding: 10px 20px;
+}
+.toDo_body li:nth-child(2n){
+    background-color: #f4f6f8;
+}
+.toDo_body li:nth-child(2n+1){
+    background-color: white;;
+}
+.toDo_body input[type="checkbox"]{
+    width: 20px;
+    height: 20px;
+
+}
+.toDo_body img{
+    width: 20px;
+    height: 20px;
+}
+.toDo_body .icons div{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+.icons .delete{
+    background-image: url("img/garbage.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.event{
+    background-image: url("img/like.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.toDo_body .icons{
+    opacity: 0;
+    display: inline;
+    position: absolute;
+    right: 20px;
+    animation-name: options;
+}
+.toDo_body .icons img{
+    margin-left: 5px;
+}
+.toDo_body li:hover .icons{
+    opacity: 1;
+    transition: 1.5s;
+    cursor: pointer;
+}
+.toDo_stats{
+    padding: 20px;
+}
+.toDo_stats__item{
+    padding-bottom: 5px;
+}
+.toDo_footer{
+    text-align: center;
+    padding: 20px;
+}
+/* @mixin button-reset{
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+} */
+.toDo_footer input{
+    border: initial;
+    padding: 7px;
+    border-radius: 4px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+}
+.toDo_footer button{
+    /* @include button-reset; */
+    /* font-size: 17px;
+    padding: 10px;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    color: #ffffff;
+    background-color: #9555af;
+    border-radius: 4px; */
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    margin: 2px 0;
+    border: solid 1px transparent;
+    border-radius: 4px;
+    padding: 0.5em 1em;
+    color: #FFFFFF;
+    background-color: #9555AF;
+    cursor: pointer;
+}
+.toDo_footer button:hover{
+    color: #9555AF;
+    border-color: currentColor;
+    background-color: white;
+}
+.done_green{
+    bsckground-color: green;
+}
