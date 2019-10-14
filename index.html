@@ -5,9 +5,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Список задач</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="src/styles/style.css">
     <link rel="stylesheet" href="font-awesome.css">
-    <script src="main.js"></script>
+    <script src="src/js/main.js"></script>
+    <script>
+        // Create a "close" button and append it to each list item
+        var myNodelist = document.getElementsByTagName("LI");
+        var i;
+        for (i = 0; i < myNodelist.length; i++) {
+          var span = document.createElement("SPAN");
+          var txt = document.createTextNode("&#128465;");
+          span.className = "close";
+          span.appendChild(txt);
+          myNodelist[i].appendChild(span);
+          myNodelist.className = "myTask";
+        }
+        
+        // Click on a close button to hide the current list item
+        var close = document.getElementsByClassName("close");
+        var i;
+        for (i = 0; i < close.length; i++) {
+          close[i].onclick = function() {
+            var div = this.parentElement;
+            div.style.display = "none";
+          }
+        }
+        var check = document.getElementsByClassName("check");
+        var i;
+        for (i = 0; i < check.length; i++){
+            check[i].onclick = function() {
+                var done = this.parentElement;
+            }
+          }
+        
+        // Add a "checked" symbol when clicking on a list item
+        var list = document.querySelector('ul');
+        list.addEventListener('click', function(ev) {
+          if (ev.target.tagName === 'LI') {
+            ev.target.classList.toggle('checked');
+          }
+        }, false);
+        
+        // Create a new list item when clicking on the "Add" button
+        function newElement() {
+          var li = document.createElement("li");
+          var inputValue = document.getElementById("myInput").value;
+          var t = document.createTextNode(inputValue);
+          li.appendChild(t);
+          if (inputValue === '') {
+            alert("You must write something!");
+          } else {
+            document.getElementById("myUL").appendChild(li);
+          }
+          document.getElementById("myInput").value = "";
+        
+          var spanCheck = document.createElement("span");
+          var txtCheck = document.createTextNode("👍");
+        //   imgCheck.src = 'img/like.png';
+          spanCheck.className = "check";
+          var spanDel = document.createElement("span");
+          var txtDel = document.createTextNode("🗑️");
+        //   imgDel.src = 'img/garbage.png';
+          spanDel.className = "close icons";
+          spanCheck.appendChild(txtCheck);
+          li.appendChild(spanCheck);
+          spanDel.appendChild(txtDel);
+          li.appendChild(spanDel);
+        
+          for (i = 0; i < close.length; i++) {
+            close[i].onclick = function() {
+              var div = this.parentElement;
+              div.style.display = "none";
+            }
+          }
+          for (i = 0; i < check.length; i++){
+            check[i].onclick = function() {
+                var done = this.parentElement;
+                done.classList.toggle('checked');
+                // done.style.backgroundColor = "#50FF33";
+                // done.style.textDecoration = "line-through";
+            }
+          }
+        }
+    </script>
 
 </head>
 <body>
@@ -15,51 +95,14 @@
         <div class="toDo">
             <div class="toDo_header">
                 <div class="toDo_title"><span>Список задач</span></div>
-                <div class="clear">
+                <!-- <div class="clear">
                     <i class="fa fa-refresh"></i>
                 </div>
-                <div id="date"></div>
+                <div id="date"></div> -->
             </div>
             <div class="toDo_body">
-                <ul id="list">
-                    <li id="myTask"><span>Задача 1</span> 
-                        <div class="icons">
-                            <!-- <div class="edit"></div> -->
-                            <div  id="event" class="event"></div>
-                            <div class="delete"></div>
-                            <!-- <img src="img/edit.png" alt="Редактировать" onclick="toDoEdit()">
-                            <img id="event" class="event" src="img/like.png" alt="Выполнено" onclick="toDoDone()">
-                            <img src="img/garbage.png" alt="Удалить" onclick="toDoDelete()"> -->
-                        </div>
-                    </li>
-                    <li><span>Задача 2</span> 
-                        <div class="icons">
-                            <img src="img/edit.png" alt="Редактировать" onclick="toDoEdit()">
-                            <img class="event" src="img/like.png" alt="Выполнено" onclick="toDoDone()">
-                            <img src="img/garbage.png" alt="Удалить" onclick="toDoDelete()">
-                        </div>
-                    </li>
-                    <li><span>Задача 3</span> 
-                        <div class="icons">
-                            <img src="img/edit.png" alt="Редактировать" onclick="toDoEdit()">
-                            <img src="img/like.png" alt="Выполнено" onclick="toDoDone()">
-                            <img src="img/garbage.png" alt="Удалить" onclick="toDoDelete()">
-                        </div>
-                    </li>
-                    <li><span>Задача 4</span> 
-                        <div class="icons">
-                            <img src="img/edit.png" alt="Редактировать" onclick="toDoEdit()">
-                            <img src="img/like.png" alt="Выполнено" onclick="toDoDone()">
-                            <img src="img/garbage.png" alt="Удалить" onclick="toDoDelete()">
-                        </div>
-                    </li>
-                    <li><span>Задача 5</span> 
-                        <div class="icons">
-                            <img src="img/edit.png" alt="Редактировать" onclick="toDoEdit()">
-                            <img src="img/like.png" alt="Выполнено" onclick="toDoDone()">
-                            <img src="img/garbage.png" alt="Удалить" onclick="toDoDelete()">
-                        </div>
-                    </li>
+                <ul id="myUL">
+                    
                 </ul>
             </div>
             <div class="toDo_stats">
@@ -77,8 +120,8 @@
                 </div>
             </div>
             <div class="toDo_footer">
-                <input id="input" class="toDo_footer__newTask" type="text" placeholder="Добавить новую задачу">
-                <button>Добавить задачу</button>
+                <input id="myInput" class="toDo_footer__newTask addBtn" type="text" placeholder="Добавить новую задачу">
+                <button onclick="newElement()">Добавить задачу</button>
             </div>
         </div>
     </div>
