@@ -1,6 +1,9 @@
 body{
     background-color: aliceblue;
 }
+.nav li{
+    list-style: none;
+}
 .wrapper{
     width: 350px;
     border-radius: 20px;
@@ -25,7 +28,7 @@ body{
     position: relative;
     align-content: center;
     list-style: none;
-    padding: 10px 20px;
+    padding: 10px 40px;
 }
 .toDo_body li:nth-child(2n){
     background-color: #f4f6f8;
@@ -42,22 +45,52 @@ body{
     width: 20px;
     height: 20px;
 }
-.toDo_body .icons div{
+.toDo_body .icons {
     width: 20px;
     height: 20px;
     display: inline-block;
 }
 .icons .delete{
-    background-image: url("img/garbage.png");
+    background-image: url("../../img/garbage.png");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
 }
 .event{
-    background-image: url("img/like.png");
+    background-image: url("../../img/like.png");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
+}
+#myUL .checked {
+    background: #50FF33;
+    color: tomato;
+    text-decoration: line-through;
+  }
+  
+  /* Add a "checked" mark when clicked on */
+  ul li.checked::before {
+    content: '';
+    position: absolute;
+    border-color: tomato;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 10px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+  }
+.check{
+    position: absolute;
+    right: 45px;
+    opacity: 0;
+    animation-name: options;
+}
+.toDo_body li:hover .check{
+    opacity: 1;
+    transition: 1.5s;
+    cursor: pointer;
 }
 .toDo_body .icons{
     opacity: 0;
